@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridge Bidding Practice - Two Players</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Bridge Bidding Practice - Partnership Mode</h1>
+            <p>Practice bidding with a partner to reach the optimal contract</p>
+        </div>
+
+        <div class="main-content">
+            <div class="setup-screen" id="setupScreen">
+                <h2>Setup Your Practice Session</h2>
+
+                <div class="file-upload">
+                    <label for="linFile">
+                        Load Hand File (.pbn)
+                        <input type="file" id="linFile" accept=".pbn">
+                    </label>
+                    <p id="fileStatus" style="margin-top: 15px; color: #718096;">Loading hands...</p>
+                </div>
+
+                <div class="partnership-selector">
+                    <h3>Select Your Partnership:</h3>
+                    <p style="margin: 10px 0; color: #718096;">Choose which partnership you want to play (opponents will bid using SAYC convention)</p>
+                    <div class="partnership-buttons">
+                        <button class="partnership-btn" data-partnership="NS">
+                            North-South
+                            <br><small>Player 1: South, Player 2: North</small>
+                        </button>
+                        <button class="partnership-btn" data-partnership="EW">
+                            East-West
+                            <br><small>Player 1: West, Player 2: East</small>
+                        </button>
+                    </div>
+                </div>
+
+                <button class="start-btn" id="startBtn" disabled>Start Practice</button>
+            </div>
+
+            <div class="game-screen" id="gameScreen">
+                <div class="game-info">
+                    <div>
+                        <strong>Partnership:</strong> <span id="partnershipDisplay"></span> |
+                        <strong>Dealer:</strong> <span id="dealer"></span> |
+                        <strong>Vulnerability:</strong> <span id="vulnerability"></span>
+                    </div>
+                    <div>
+                        <strong>Hand:</strong> <span id="handNumber"></span>
+                    </div>
+                    <div id="turnIndicator" class="turn-indicator"></div>
+                </div>
+
+                <div class="two-player-layout">
+                    <div class="player-section" id="player1Section">
+                        <h3 id="player1Title">Player 1 - South</h3>
+                        <div class="hand-display">
+                            <div class="suits">
+                                <div class="suit spades">
+                                    <span class="suit-symbol">♠</span>
+                                    <span id="player1Spades"></span>
+                                </div>
+                                <div class="suit hearts">
+                                    <span class="suit-symbol">♥</span>
+                                    <span id="player1Hearts"></span>
+                                </div>
+                                <div class="suit diamonds">
+                                    <span class="suit-symbol">♦</span>
+                                    <span id="player1Diamonds"></span>
+                                </div>
+                                <div class="suit clubs">
+                                    <span class="suit-symbol">♣</span>
+                                    <span id="player1Clubs"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="player-section" id="player2Section">
+                        <h3 id="player2Title">Player 2 - North</h3>
+                        <div class="hand-display">
+                            <div class="suits">
+                                <div class="suit spades">
+                                    <span class="suit-symbol">♠</span>
+                                    <span id="player2Spades"></span>
+                                </div>
+                                <div class="suit hearts">
+                                    <span class="suit-symbol">♥</span>
+                                    <span id="player2Hearts"></span>
+                                </div>
+                                <div class="suit diamonds">
+                                    <span class="suit-symbol">♦</span>
+                                    <span id="player2Diamonds"></span>
+                                </div>
+                                <div class="suit clubs">
+                                    <span class="suit-symbol">♣</span>
+                                    <span id="player2Clubs"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bidding-box">
+                    <h3>Make Your Bid</h3>
+                    <div class="bid-grid" id="bidGrid"></div>
+                    <div class="special-bids">
+                        <button class="special-bid pass-btn" id="passBtn" onclick="makeBid('P')">Pass</button>
+                        <button class="special-bid double-btn" id="doubleBtn" onclick="makeBid('D')">Double</button>
+                        <button class="special-bid redouble-btn" id="redoubleBtn" onclick="makeBid('R')">Redouble</button>
+                    </div>
+
+                    <div class="auction-history">
+                        <h4>Auction</h4>
+                        <div class="auction-table" id="auctionTable"></div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button class="control-btn new-hand-btn" onclick="loadNewHand()">New Hand</button>
+                    <button class="control-btn show-answer-btn" id="showHandsBtn" onclick="showParContractModal()" disabled>Show Hands</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="answerModal">
+        <div class="modal-content">
+            <div class="contract-result" id="contractResult"></div>
+
+            <div id="fullAuction" style="margin-top: 10px;"></div>
+
+            <button class="close-modal" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

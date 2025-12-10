@@ -1,0 +1,353 @@
+{
+  "name": "Standard American Yellow Card (SAYC)",
+  "description": "Basic 5-card major system with strong notrump",
+  "hcp_values": {
+    "A": 4,
+    "K": 3,
+    "Q": 2,
+    "J": 1,
+    "T": 0
+  },
+  "opening_bids": [
+    {
+      "bid": "1N",
+      "priority": 100,
+      "conditions": {
+        "hcp_min": 15,
+        "hcp_max": 17,
+        "balanced": true
+      },
+      "description": "15-17 HCP, balanced hand"
+    },
+    {
+      "bid": "2N",
+      "priority": 99,
+      "conditions": {
+        "hcp_min": 20,
+        "hcp_max": 21,
+        "balanced": true
+      },
+      "description": "20-21 HCP, balanced hand"
+    },
+    {
+      "bid": "2C",
+      "priority": 98,
+      "conditions": {
+        "hcp_min": 22
+      },
+      "description": "22+ HCP, strong artificial"
+    },
+    {
+      "bid": "1S",
+      "priority": 90,
+      "conditions": {
+        "hcp_min": 12,
+        "suit": "S",
+        "suit_length_min": 5
+      },
+      "description": "12+ HCP, 5+ spades"
+    },
+    {
+      "bid": "1H",
+      "priority": 85,
+      "conditions": {
+        "hcp_min": 12,
+        "suit": "H",
+        "suit_length_min": 5
+      },
+      "description": "12+ HCP, 5+ hearts"
+    },
+    {
+      "bid": "1D",
+      "priority": 75,
+      "conditions": {
+        "hcp_min": 12,
+        "suit": "D",
+        "suit_length_min": 3
+      },
+      "description": "12+ HCP, 3+ diamonds"
+    },
+    {
+      "bid": "1C",
+      "priority": 70,
+      "conditions": {
+        "hcp_min": 12,
+        "suit": "C",
+        "suit_length_min": 3
+      },
+      "description": "12+ HCP, 3+ clubs"
+    },
+    {
+      "bid": "P",
+      "priority": 0,
+      "conditions": {
+        "hcp_max": 11
+      },
+      "description": "Pass with less than opening strength"
+    }
+  ],
+  "responses": {
+    "1N": [
+      {
+        "bid": "3N",
+        "priority": 100,
+        "conditions": {
+          "hcp_min": 10,
+          "hcp_max": 14
+        },
+        "description": "Game with 10-14 HCP"
+      },
+      {
+        "bid": "2N",
+        "priority": 90,
+        "conditions": {
+          "hcp_min": 8,
+          "hcp_max": 9
+        },
+        "description": "Invite with 8-9 HCP"
+      },
+      {
+        "bid": "P",
+        "priority": 0,
+        "conditions": {
+          "hcp_max": 7
+        },
+        "description": "Pass with less than 8 HCP"
+      }
+    ],
+    "1H": [
+      {
+        "bid": "4H",
+        "priority": 100,
+        "conditions": {
+          "hcp_min": 10,
+          "hcp_max": 12,
+          "suit": "H",
+          "suit_length_min": 4
+        },
+        "description": "Game with 10-12 HCP and 4+ hearts"
+      },
+      {
+        "bid": "3H",
+        "priority": 95,
+        "conditions": {
+          "hcp_min": 10,
+          "hcp_max": 12,
+          "suit": "H",
+          "suit_length_min": 3
+        },
+        "description": "Limit raise with 10-12 HCP and 3+ hearts"
+      },
+      {
+        "bid": "2H",
+        "priority": 85,
+        "conditions": {
+          "hcp_min": 6,
+          "hcp_max": 9,
+          "suit": "H",
+          "suit_length_min": 3
+        },
+        "description": "Simple raise with 6-9 HCP and 3+ hearts"
+      },
+      {
+        "bid": "1S",
+        "priority": 90,
+        "conditions": {
+          "hcp_min": 6,
+          "suit": "S",
+          "suit_length_min": 4
+        },
+        "description": "1-level new suit with 6+ HCP and 4+ spades"
+      },
+      {
+        "bid": "1N",
+        "priority": 80,
+        "conditions": {
+          "hcp_min": 6,
+          "hcp_max": 10
+        },
+        "description": "Forcing 1NT with 6-10 HCP"
+      },
+      {
+        "bid": "P",
+        "priority": 0,
+        "conditions": {
+          "hcp_max": 5
+        },
+        "description": "Pass with less than 6 HCP"
+      }
+    ],
+    "1S": [
+      {
+        "bid": "4S",
+        "priority": 100,
+        "conditions": {
+          "hcp_min": 10,
+          "hcp_max": 12,
+          "suit": "S",
+          "suit_length_min": 4
+        },
+        "description": "Game with 10-12 HCP and 4+ spades"
+      },
+      {
+        "bid": "3S",
+        "priority": 95,
+        "conditions": {
+          "hcp_min": 10,
+          "hcp_max": 12,
+          "suit": "S",
+          "suit_length_min": 3
+        },
+        "description": "Limit raise with 10-12 HCP and 3+ spades"
+      },
+      {
+        "bid": "2S",
+        "priority": 85,
+        "conditions": {
+          "hcp_min": 6,
+          "hcp_max": 9,
+          "suit": "S",
+          "suit_length_min": 3
+        },
+        "description": "Simple raise with 6-9 HCP and 3+ spades"
+      },
+      {
+        "bid": "1N",
+        "priority": 80,
+        "conditions": {
+          "hcp_min": 6,
+          "hcp_max": 10
+        },
+        "description": "Forcing 1NT with 6-10 HCP"
+      },
+      {
+        "bid": "P",
+        "priority": 0,
+        "conditions": {
+          "hcp_max": 5
+        },
+        "description": "Pass with less than 6 HCP"
+      }
+    ],
+    "1D": [
+      {
+        "bid": "1H",
+        "priority": 95,
+        "conditions": {
+          "hcp_min": 6,
+          "suit": "H",
+          "suit_length_min": 4
+        },
+        "description": "1-level new suit with 6+ HCP and 4+ hearts"
+      },
+      {
+        "bid": "1S",
+        "priority": 96,
+        "conditions": {
+          "hcp_min": 6,
+          "suit": "S",
+          "suit_length_min": 4
+        },
+        "description": "1-level new suit with 6+ HCP and 4+ spades"
+      },
+      {
+        "bid": "2D",
+        "priority": 85,
+        "conditions": {
+          "hcp_min": 6,
+          "hcp_max": 10,
+          "suit": "D",
+          "suit_length_min": 4
+        },
+        "description": "Simple raise with 6-10 HCP and 4+ diamonds"
+      },
+      {
+        "bid": "1N",
+        "priority": 80,
+        "conditions": {
+          "hcp_min": 6,
+          "hcp_max": 10
+        },
+        "description": "1NT response with 6-10 HCP"
+      },
+      {
+        "bid": "P",
+        "priority": 0,
+        "conditions": {
+          "hcp_max": 5
+        },
+        "description": "Pass with less than 6 HCP"
+      }
+    ],
+    "1C": [
+      {
+        "bid": "1D",
+        "priority": 94,
+        "conditions": {
+          "hcp_min": 6,
+          "suit": "D",
+          "suit_length_min": 4
+        },
+        "description": "1-level new suit with 6+ HCP and 4+ diamonds"
+      },
+      {
+        "bid": "1H",
+        "priority": 95,
+        "conditions": {
+          "hcp_min": 6,
+          "suit": "H",
+          "suit_length_min": 4
+        },
+        "description": "1-level new suit with 6+ HCP and 4+ hearts"
+      },
+      {
+        "bid": "1S",
+        "priority": 96,
+        "conditions": {
+          "hcp_min": 6,
+          "suit": "S",
+          "suit_length_min": 4
+        },
+        "description": "1-level new suit with 6+ HCP and 4+ spades"
+      },
+      {
+        "bid": "2C",
+        "priority": 85,
+        "conditions": {
+          "hcp_min": 6,
+          "hcp_max": 10,
+          "suit": "C",
+          "suit_length_min": 4
+        },
+        "description": "Simple raise with 6-10 HCP and 4+ clubs"
+      },
+      {
+        "bid": "1N",
+        "priority": 80,
+        "conditions": {
+          "hcp_min": 6,
+          "hcp_max": 10
+        },
+        "description": "1NT response with 6-10 HCP"
+      },
+      {
+        "bid": "P",
+        "priority": 0,
+        "conditions": {
+          "hcp_max": 5
+        },
+        "description": "Pass with less than 6 HCP"
+      }
+    ]
+  },
+  "rebids": {
+    "default": [
+      {
+        "bid": "P",
+        "priority": 0,
+        "conditions": {},
+        "description": "Default pass"
+      }
+    ]
+  }
+}

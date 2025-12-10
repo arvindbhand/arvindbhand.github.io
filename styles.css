@@ -1,0 +1,492 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.header {
+    background: #2d3748;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    margin-bottom: 10px;
+}
+
+.main-content {
+    padding: 30px;
+}
+
+.setup-screen {
+    text-align: center;
+}
+
+.setup-screen h2 {
+    margin-bottom: 20px;
+    color: #2d3748;
+}
+
+.mode-selector {
+    margin: 30px 0;
+}
+
+.mode-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.mode-btn {
+    padding: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #667eea;
+    background: white;
+    color: #667eea;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.mode-btn:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.mode-btn.selected {
+    background: #667eea;
+    color: white;
+}
+
+.file-upload {
+    margin: 30px 0;
+    padding: 40px;
+    border: 3px dashed #cbd5e0;
+    border-radius: 10px;
+    background: #f7fafc;
+}
+
+.file-upload input[type="file"] {
+    display: none;
+}
+
+.file-upload label {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #667eea;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.file-upload label:hover {
+    background: #5568d3;
+}
+
+.partnership-selector {
+    margin: 30px 0;
+}
+
+.partnership-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.partnership-btn {
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid #667eea;
+    background: white;
+    color: #667eea;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.partnership-btn:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.partnership-btn.selected {
+    background: #667eea;
+    color: white;
+}
+
+.start-btn {
+    padding: 15px 40px;
+    font-size: 18px;
+    background: #48bb78;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.start-btn:hover {
+    background: #38a169;
+}
+
+.start-btn:disabled {
+    background: #cbd5e0;
+    cursor: not-allowed;
+}
+
+.game-screen {
+    display: none;
+}
+
+.game-info {
+    background: #f7fafc;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.turn-indicator {
+    padding: 10px 20px;
+    background: #ed8936;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.waiting-indicator {
+    background: #cbd5e0;
+    color: #4a5568;
+}
+
+.two-player-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.player-section {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 10px;
+    border: 3px solid transparent;
+}
+
+.player-section.active {
+    border-color: #48bb78;
+    box-shadow: 0 0 15px rgba(72, 187, 120, 0.3);
+}
+
+.player-section h3 {
+    margin-bottom: 15px;
+    color: #2d3748;
+    text-align: center;
+}
+
+.hand-display {
+    background: #2f855a;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    min-height: 200px;
+}
+
+.suits {
+    display: grid;
+    gap: 8px;
+}
+
+.suit {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-family: monospace;
+    background: rgba(255,255,255,0.1);
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.suit-symbol {
+    font-size: 20px;
+    margin-right: 10px;
+    min-width: 25px;
+}
+
+.spades { color: #000; background: white; }
+.hearts { color: #ff0000; background: white; }
+.diamonds { color: #ff8800; background: white; }
+.clubs { color: #008800; background: white; }
+
+.bidding-box {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.bidding-box h3 {
+    margin-bottom: 15px;
+    color: #2d3748;
+}
+
+.bid-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.bid-btn {
+    padding: 12px;
+    border: 2px solid #cbd5e0;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+    font-size: 14px;
+}
+
+.bid-btn:hover:not(:disabled) {
+    background: #e6fffa;
+    border-color: #319795;
+    transform: translateY(-2px);
+}
+
+.bid-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.special-bids {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.special-bid {
+    padding: 12px;
+    font-weight: bold;
+    border: 2px solid #cbd5e0;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pass-btn { background: #48bb78; color: white; border-color: #48bb78; }
+.double-btn { background: #f56565; color: white; border-color: #f56565; }
+.redouble-btn { background: #ed8936; color: white; border-color: #ed8936; }
+
+.special-bid:hover:not(:disabled) {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+.special-bid:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.auction-history {
+    margin-top: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #cbd5e0;
+}
+
+.auction-history h4 {
+    margin-bottom: 10px;
+    color: #2d3748;
+}
+
+.auction-table {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.auction-cell {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.auction-header {
+    background: #2d3748;
+    color: white;
+}
+
+.auction-cell.user-bid {
+    background: #c6f6d5;
+}
+
+.auction-cell.partner-bid {
+    background: #bee3f8;
+}
+
+.auction-cell.opponent-bid {
+    background: #fed7d7;
+}
+
+.controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.new-hand-btn {
+    background: #667eea;
+    color: white;
+}
+
+.new-hand-btn:hover {
+    background: #5568d3;
+}
+
+.show-answer-btn {
+    background: #ed8936;
+    color: white;
+}
+
+.show-answer-btn:hover {
+    background: #dd6b20;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-content h3 {
+    margin-bottom: 15px;
+}
+
+.close-modal {
+    background: #cbd5e0;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.contract-result {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background: #f7fafc;
+}
+
+.contract-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.contract-box {
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.your-contract {
+    background: #c6f6d5;
+    border: 2px solid #48bb78;
+}
+
+.actual-contract {
+    background: #bee3f8;
+    border: 2px solid #4299e1;
+}
+
+.contract-box h4 {
+    margin-bottom: 10px;
+    color: #2d3748;
+}
+
+.contract-box .contract {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+@media (max-width: 968px) {
+    .two-player-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .contract-comparison {
+        grid-template-columns: 1fr;
+    }
+}
